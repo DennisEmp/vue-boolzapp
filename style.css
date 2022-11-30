@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.background {
+    width: 100vw;
+    height: 100vh;
+}
+.top-bg {
+    width: 100%;
+    height: 20%;
+    background-color: #00a884;
+    position: relative;
+}
+.down-bg {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #d7dbd6;
+}
+.app {
+    height: 80vh;
+    margin: 0 auto;
+    position: relative;
+    top: -10vh;
+    background-color: white;
+    display: flex;
+}
+.col-4 {
+    background-color: #fff;
+    border-right: 1px solid #b1b1b1;
+}
+.col-8 {
+    background-color: #fff;
+}
+.user-info {
+    height: 10%;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.user-info-col-4{
+    height: 10%;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    gap: 20px;
+    
+}
+.chat {
+    width: 100%;
+    height: 90%;
+    background-image: url("imgs/mine.jpg");
+    position: relative;
+}
+.input-txt {
+    width: 100%;
+    height: 55px;
+    background-color: white;
+    position: relative;
+    top: -55px;
+    opacity: 65%;
+}
+.cont-input {
+    width: 100%;
+    height: 55px;
+    position: relative;
+    top: -110px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#txt {
+    background-color: #fff;
+    width: 43vw;
+    border: 0;
+    border-radius: 8px;
+    height: 43px;
+    font-size: 14px;
+    padding-left: 16px;
+    outline: none;
+}
+.chat-bttn {
+    font-size: 20px;
+    opacity: 65%;
+}
+.icon-chat{
+    font-size: 20px;
+    display: flex;
+    gap: 16px;
+    opacity: 40%;
+}
+.avatar-chat{
+    width: 55px;
+    height: 55px;
+    border-radius: 40px;
+}
+.user-info-chat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.avatar-info{
+    display: flex;
+    flex-direction: column;
+}
+.avatar-name{
+    font-size: 18px;
+}
+.avatar-access{
+    font-size: 12px;
+    opacity: 60%;
+}
+#user-name{
+    margin-left: 10px;
+}
+.notifiche-desktop {
+    width: 100%;
+    height: 80px;
+    background-color: #8edafc;
+}
+#attiva-notifiche{
+    font-size: 10px;
+    text-decoration: underline;
+    opacity: 50%;
+}
+.ricevi-notifiche{
+    font-size: 12px;
+}
+.bells-icon{
+    font-size: 20px;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-bell-slash{
+    color: #8edafc;
+}
