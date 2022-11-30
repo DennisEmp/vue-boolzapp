@@ -165,6 +165,10 @@ const { createApp } = Vue
                 }
             ]
         }
+    },
+    methods:{
+        
     }
-    )
-    
+).mount("#webapp")
+
+   
