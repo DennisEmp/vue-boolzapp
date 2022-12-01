@@ -46,7 +46,7 @@
                         </div>
                         <!-- CONTAINER CHAT -->
                         <div class="chat-container">
-                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" v-for="contact in contacts">
+                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" v-for="contact in contacts" @click="activeUserChat">
                                 <div class="avatar-chat">
                                     <img :src="contact.avatar" alt="" class="avatar-chat">
                                 </div>
@@ -66,10 +66,11 @@
                     <div class="col-8">
                         <div class="user-info">
                             <div class="user-info-chat">
+                                <!-- img user attivo top pagina -->
                                 <img src="imgs/avatar_1.jpg" alt="" class="avatar-chat">
                                 <div class="avatar-info">
                                     <!-- nome e ultimo accesso MITTENTE, POSIZIONE TOP COL-8 -->
-                                    <span class="avatar-name">Ciruzz o Malavitus</span>
+                                    <span class="avatar-name">{{contacts[activeElement].name}}</span>
                                     <span class="avatar-access">Ultimo accesso alle 10,45</span>
                                 </div>
                             </div>
@@ -79,19 +80,18 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
-
-                        <!-- !!!!!! PROBLEMA DA RISOLVERE POSIZIONE DEI MESSAGGI -->
-                        <!--  vorrei mettere chat in flex con just-cont-between ma le grandezze dei contenitori dei messaggi prendono il 100% dell altezza di chat-->
-                        
+                        <!-- SECTION CHAT -->
                         <div class="chat py-2">
-                            <div class="chat-wrapper px-5">
+                            <!-- wrapper message received -->
+                            <div class="chat-wrapper px-5" v-for="message in contacts[activeElement].messages">
                                 <div class="message-received col-4">
-                                    <div class="text-message">DSAasdfasdfsad</div>
+                                    <div class="text-message">{{ message.message }}</div>
                                 </div>
                             </div>
-                            <div class="chat-wrapper px-5">
-                                <div class="message-send col-4 offset-8">
-                                    <div class="text-message">CSAASWEDFGSDFER</div>
+                            <!-- wrapper message send -->
+                            <div class="chat-wrapper px-5" v-for="message in contacts[activeElement].messages">
+                                <div class="message-sent col-4 offset-8">
+                                    <div class="text-message">{{ message.message }}</div>
                                 </div>
                             </div>
                         </div>
@@ -115,3 +115,19 @@
 <script src="main.js"></script>
 </body>
 </html>
+
+
+
+<!-- -Milestone 2
+*Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
+*Click sul contatto mostra la conversazione del contatto cliccato
+
+-Milestone 3
+*Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+*Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
+-Milestone 4
+*Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina) -->
+
+
+<!-- NON RIESCO A COLLEGARE IL MESSAGGI CON STATUS SENT ALLA CLASSE INVIATI E I MESSAGGI CON STATUS RECEIVED ALLA CLASSE RECEIVED -->
