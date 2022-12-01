@@ -15,7 +15,7 @@
     <main class="background">
         <div class="top-bg"></div>
         <div class="down-bg">
-            <div class="container">
+            <div class="container" id="webapp">
                 <div class="app">
                     <div class="col-4">
                         <div class="user-info-col-4">
@@ -46,18 +46,19 @@
                         </div>
                         <!-- CONTAINER CHAT -->
                         <div class="chat-container">
-                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2">
+                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" v-for="contact in contacts">
                                 <div class="avatar-chat">
-                                    <img src="imgs/avatar_4.jpg" alt="" class="avatar-chat">
+                                    <img :src="contact.avatar" alt="" class="avatar-chat">
                                 </div>
                                 <div class="info-avatar-chat d-flex flex-column">
                                     <!-- NOME E ULTIMO MESSAGGIO -->
-                                    <span class="nome-avatar-chat">Peppe Fetish</span>
-                                    <span class="last-message">Ultimo messaggio inviato</span>
+                                    <span class="nome-avatar-chat">{{ contact.name }}</span>
+                                    <span class="last-message">{{contact.messages[contact.messages.length - 1].message}}</span>
                                 </div>
                                 <div class="time-message">
                                     <!-- ORARIO -->
-                                    <span class="time">12.00</span>
+                                    <span class="time">{{contact.messages[contact.messages.length - 1].date}}
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -84,18 +85,13 @@
                         
                         <div class="chat py-2">
                             <div class="chat-wrapper px-5">
-                                <div class="message-received col-6">
+                                <div class="message-received col-4">
                                     <div class="text-message">DSAasdfasdfsad</div>
                                 </div>
                             </div>
                             <div class="chat-wrapper px-5">
-                                <div class="message-send col-6">
+                                <div class="message-send col-4 offset-8">
                                     <div class="text-message">CSAASWEDFGSDFER</div>
-                                </div>
-                            </div>
-                            <div class="chat-wrapper px-5">
-                                <div class="message-received col-6">
-                                    <div class="text-message">DSAasdfasdfsad</div>
                                 </div>
                             </div>
                         </div>
