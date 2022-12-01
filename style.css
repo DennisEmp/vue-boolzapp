@@ -58,20 +58,15 @@
     width: 100%;
     height: 90%;
     background-image: url("imgs/mine.jpg");
-    position: relative;
 }
 .input-txt {
     width: 100%;
     height: 55px;
     background-color: white;
-    position: relative;
-    top: -55px;
-    opacity: 65%;
 }
 .cont-input {
     width: 100%;
     height: 55px;
-    position: relative;
     top: -110px;
     display: flex;
     justify-content: space-around;
