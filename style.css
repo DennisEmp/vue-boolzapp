@@ -201,15 +201,11 @@
     background-color: #d5f9ba;
     padding: 20px;
     border-radius: 20px;
-    top: 110px;
-    left: 420px;
 }
 .message-received{
     background-color: #fff;
     padding: 20px;
     border-radius: 20px;
-    top: 10px;
-    left: 20px;
 }
 .text-message{
     font-size: 11px;
