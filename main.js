@@ -181,12 +181,23 @@ const { createApp } = Vue;
                 this.error = true;
 
             } else {
-                this.messaggioinviato.messages.push({ text: this.newMessage, status: 'sent' });
+                this.contacts[this.activeElement].messages.push({ 
+                    date:'10/01/2020 15:30:55',
+                    message: this.newMessage, status: 'sent' });
                 this.error = false;
                 this.newMessage = '';
             }
+            
+            setTimeout(() => {
+                this.contacts[this.activeElement].messages.push({ 
+                    date:'10/01/2020 15:30:55',
+                    message: 'ok!', status: 'received' });
+            }, 1000);
+            
+            
         }
     }
 }).mount("#webapp")
 
-   
+// BLOCCARE I MESSAGGI CON SOLO LO SPACE BUTTON
+// this.newMessage === keyCode != 32 && 
