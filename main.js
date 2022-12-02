@@ -5,6 +5,7 @@ const { createApp } = Vue;
             error: false,
             newMessage: '',
             messaggioinviato:'',
+            searchInChatList:'',
             activeElement: 0,
                 contacts: [
                     {
@@ -173,9 +174,14 @@ const { createApp } = Vue;
         },
 
         methods: {
+
+            // CAMBIO SCREEN CHAT IN BASE AL CLICK DELL INDEX CONTATTO
             activeUserChat(index){
                 this.activeElement = index;
             },
+
+
+            // NEW MESSAGE
              addMessage(){
             if (this.newMessage === ''){
                 this.error = true;
@@ -188,14 +194,23 @@ const { createApp } = Vue;
                 this.newMessage = '';
             }
             
+            // RISPOSTA
             setTimeout(() => {
                 this.contacts[this.activeElement].messages.push({ 
                     date:'10/01/2020 15:30:55',
                     message: 'ok!', status: 'received' });
             }, 1000);
             
-            
+        },
+
+        searchUser(){
+            if (!this.contacts.name.includes(searchInChatList)){
+                this.contacts.visible = false;
+            } else {
+                this.contacts.visible = true;            
+            }
         }
+        
     }
 }).mount("#webapp")
 

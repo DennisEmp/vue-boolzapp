@@ -42,11 +42,11 @@
                             <button id="button-search-col-4">
                                 <i class="fa-solid fa-magnifying-glass opacity-50"></i>
                             </button>
-                            <input type="text" class="input-search-chat" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" class="input-search-chat" placeholder="Cerca o inizia una nuova chat" v-model="searchInChatList">
                         </div>
                         <!-- CONTAINER CHAT -->
                         <div class="chat-container">
-                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" v-for="(contact, index) in contacts" @click="activeUserChat(index)" :class="contact.visible ? '' : 'd-none'">
+                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" v-for="(contact, index) in contacts" v-if="visible" @click="activeUserChat(index)" :class="contact.visible ? '' : 'd-none'">
                                 <div class="avatar-chat">
                                     <img :src="contact.avatar" alt="" class="avatar-chat">
                                 </div>
