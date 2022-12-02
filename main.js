@@ -23,7 +23,7 @@ const { createApp } = Vue;
                                 date: '10/01/2020 16:15:22',
                                 message: 'Tutto fatto!',
                                 status: 'received'
-                            }
+                            },
                         ],
                     },
                     {

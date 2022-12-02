@@ -85,13 +85,13 @@
                             <!-- wrapper message received -->
                             <div class="chat-wrapper px-5" v-for="message in contacts[activeElement].messages">
                                 <div class="message-received col-4">
-                                    <div class="text-message">{{ message.message }}</div>
+                                    <div class="text-message" :class="message.status == 'received' ? 'message-received' : 'd-none'">{{ message.message }}</div>
                                 </div>
                             </div>
                             <!-- wrapper message send -->
                             <div class="chat-wrapper px-5" v-for="message in contacts[activeElement].messages">
                                 <div class="message-sent col-4 offset-8">
-                                    <div class="text-message">{{ message.message }}</div>
+                                    <div class="text-message" :class="message.status == 'sent' ? 'message-sent' : 'd-none'">{{ message.message }}</div>
                                 </div>
                             </div>
                         </div>
