@@ -46,7 +46,7 @@
                         </div>
                         <!-- CONTAINER CHAT -->
                         <div class="chat-container">
-                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" v-for="contact in contacts" @click="activeUserChat">
+                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" v-for="(contact, index) in contacts" @click="activeUserChat(index)" :class="contact.visible ? '' : 'd-none'">
                                 <div class="avatar-chat">
                                     <img :src="contact.avatar" alt="" class="avatar-chat">
                                 </div>
@@ -67,7 +67,7 @@
                         <div class="user-info">
                             <div class="user-info-chat">
                                 <!-- img user attivo top pagina -->
-                                <img src="imgs/avatar_1.jpg" alt="" class="avatar-chat">
+                                <img :src="contacts[activeElement].avatar" alt="" class="avatar-chat">
                                 <div class="avatar-info">
                                     <!-- nome e ultimo accesso MITTENTE, POSIZIONE TOP COL-8 -->
                                     <span class="avatar-name">{{contacts[activeElement].name}}</span>
@@ -81,26 +81,20 @@
                             </div>
                         </div>
                         <!-- SECTION CHAT -->
-                        <div class="chat py-2">
-                            <!-- wrapper message received -->
-                            <div class="chat-wrapper px-5" v-for="message in contacts[activeElement].messages">
-                                <div class="message-received col-4">
-                                    <div class="text-message" :class="message.status == 'received' ? 'message-received' : 'd-none'">{{ message.message }}</div>
-                                </div>
-                            </div>
-                            <!-- wrapper message send -->
-                            <div class="chat-wrapper px-5" v-for="message in contacts[activeElement].messages">
-                                <div class="message-sent col-4 offset-8">
-                                    <div class="text-message" :class="message.status == 'sent' ? 'message-sent' : 'd-none'">{{ message.message }}</div>
-                                </div>
+                        
+                        <div class="chat">
+                            <div class="d-flex flex-column p-5">
+                                <div v-for="message in contacts[activeElement].messages" :class="message.status === 'sent' ? 'message-sent' : 'message-received' ">{{message.message}}</div>
                             </div>
                         </div>
+
+                        <!-- </div> -->
                         <div class="cont-input">
                             <div class="chat-bttn">
                                 <i class="fa-regular fa-face-smile"></i>
                             </div>
                             <div class="input">
-                                <input id="txt" type="text" placeholder="Scrivi un messaggio">
+                                <input id="txt" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @KeyUp.enter="addMessage" v-for="(newMessage) in messaggioinviato.messages ">
                             </div>
                             <div class="chat-bttn">
                                 <i class="fa-solid fa-microphone"></i>
@@ -131,3 +125,4 @@
 
 
 <!-- NON RIESCO A COLLEGARE IL MESSAGGI CON STATUS SENT ALLA CLASSE INVIATI E I MESSAGGI CON STATUS RECEIVED ALLA CLASSE RECEIVED -->
+

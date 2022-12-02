@@ -172,6 +172,10 @@
     margin: 0 auto;
     border-bottom: 1px solid #b1b1b1;
 }
+.chat-list:hover {
+    background-color: #dbdbdb;
+    cursor: pointer;
+}
 .nome-avatar-chat{
     font-size: 16px;
 }
@@ -195,11 +199,17 @@
     background-color: #d5f9ba;
     padding: 10px;
     border-radius: 10px;
+    max-width: 400px;
+    align-self: end;
+    margin-bottom: 20px;
 }
 .message-received{
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
+    max-width: 400px;
+    margin-bottom: 20px;
+    align-self: start;
 }
 .text-message{
     font-size: 12px;

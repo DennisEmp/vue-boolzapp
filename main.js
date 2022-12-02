@@ -2,6 +2,9 @@ const { createApp } = Vue;
     createApp({
         data(){
             return{
+            error: false,
+            newMessage: '',
+            messaggioinviato:'',
             activeElement: 0,
                 contacts: [
                     {
@@ -172,9 +175,18 @@ const { createApp } = Vue;
         methods: {
             activeUserChat(index){
                 this.activeElement = index;
-            }  
+            },
+             addMessage(){
+            if (this.newMessage === ''){
+                this.error = true;
+
+            } else {
+                this.messaggioinviato.messages.push({ text: this.newMessage, status: 'sent' });
+                this.error = false;
+                this.newMessage = '';
+            }
         }
-    
+    }
 }).mount("#webapp")
 
    
