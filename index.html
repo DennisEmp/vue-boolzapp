@@ -44,9 +44,10 @@
                             </button>
                             <input type="text" class="input-search-chat" placeholder="Cerca o inizia una nuova chat" v-model="searchInChatList">
                         </div>
-                        <!-- CONTAINER CHAT -->
+                        <!-- CO'ìNTAINER CHAT -->
                         <div class="chat-container">
-                            <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" v-for="(contact, index) in contacts" v-if="visible" @click="activeUserChat(index)" :class="contact.visible ? '' : 'd-none'">
+                            <template v-for="(contact, index) in contacts"> 
+                                <div class="chat-list d-flex justify-content-lg-start gap-3 px-2 py-2" @click="activeUserChat(index)" :class="contact.visible ? '' : 'd-none'" v-if="searchUser(index)">
                                 <div class="avatar-chat">
                                     <img :src="contact.avatar" alt="" class="avatar-chat">
                                 </div>
@@ -60,7 +61,7 @@
                                     <span class="time">{{contact.messages[contact.messages.length - 1].date}}
                                     </span>
                                 </div>
-                            </div>
+                            </template>  
                         </div>
                     </div>
                     <div class="col-8">
@@ -126,3 +127,11 @@
 
 <!-- NON RIESCO A COLLEGARE IL MESSAGGI CON STATUS SENT ALLA CLASSE INVIATI E I MESSAGGI CON STATUS RECEIVED ALLA CLASSE RECEIVED -->
 
+
+<!-- if (receivedmessageTrue) {
+    this.contacts[this.activeElement].messages.push({ 
+        date:'10/01/2020 15:30:55',
+        message: 'ok!', status: 'received' });
+} else {
+    this.error = true;
+} -->

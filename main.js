@@ -182,37 +182,49 @@ const { createApp } = Vue;
 
 
             // NEW MESSAGE
+            // trim è per li spazi
              addMessage(){
-            if (this.newMessage === ''){
-                this.error = true;
+                if ((this.newMessage !== '') && (this.newMessage.trim().length !== 0)){
+                    this.contacts[this.activeElement].messages.push({ 
+                        date:'10/01/2020 15:30:55',
+                        message: this.newMessage, status: 'sent' });
 
-            } else {
-                this.contacts[this.activeElement].messages.push({ 
-                    date:'10/01/2020 15:30:55',
-                    message: this.newMessage, status: 'sent' });
-                this.error = false;
-                this.newMessage = '';
-            }
+                } else {                    
+                    this.newMessage = none;
+                }
             
-            // RISPOSTA
-            setTimeout(() => {
-                this.contacts[this.activeElement].messages.push({ 
-                    date:'10/01/2020 15:30:55',
-                    message: 'ok!', status: 'received' });
-            }, 1000);
-            
-        },
+                // RISPOSTA
+                
+                setTimeout(() => {
+                        {
+                        this.contacts[this.activeElement].messages.push({ 
+                            date:'10/01/2020 15:30:55',
+                            message: 'u did it!', status: 'received' });
+                        } 
+                }, 1000);
 
-        searchUser(){
-            if (!this.contacts.name.includes(searchInChatList)){
-                this.contacts.visible = false;
-            } else {
-                this.contacts.visible = true;            
+                // QUESTA E' FUNZIONANTE MA INVIA LA RISPOSTA ANCHE CON INPUT VUOTO
+                // setTimeout(() => {
+                //     this.contacts[this.activeElement].messages.push({ 
+                //         date:'10/01/2020 15:30:55',
+                //         message: 'ok!', status: 'received' });
+                // }, 1000);
+            
+            },
+
+            searchUser(username){
+
+                nome = this.contacts[username].name.toLowerCase();
+
+                if (nome.includes(this.searchInChatList)) {
+                    return true;
+                } else {
+                    return false;
+                }
+
             }
         }
-        
-    }
 }).mount("#webapp")
 
 // BLOCCARE I MESSAGGI CON SOLO LO SPACE BUTTON
-// this.newMessage === keyCode != 32 && 
+// this.newMessage === keyCode != 32 &&
